@@ -37,11 +37,9 @@ searchTerm = (event) => {
 hitIt = () => {
   this.props.dispatch({
     type: 'FETCH_MOVIE',
-    payload: this.state
+    payload: this.state.search
   });
-  this.setState({
-    search: ""
-  })
+  
 }
 
 

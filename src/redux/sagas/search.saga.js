@@ -6,9 +6,9 @@ function* fetchMovie(action) {
     console.log('fetchMovie got an action', action);
     let response = yield axios ({
         method: 'GET',
-        url: `api/info/${action.payload}`
+        url: `/api/shelf/${action.payload}`
     });
-    console.log('GET /info response', response);
+    console.log('GET /info response', response.data);
     yield put ({
         type: 'SET_MOVIE',
         payload: response.data
