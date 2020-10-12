@@ -52,10 +52,14 @@ hitIt = () => {
         placeholder="Enter movie title"
         onChange={this.searchTerm}
         />
-      <button onClick={this.hitIt}>Search</button>
+      <button onClick={this.hitIt}>Search</button><br></br>
 
       <>
       {JSON.stringify(this.props.search)}
+      {this.props.search.Title}
+      <img src={this.props.search.Poster} width="50px" height="75px"/>
+      
+      
       </>
 
       </div>
