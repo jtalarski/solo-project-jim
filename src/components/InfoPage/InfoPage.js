@@ -55,8 +55,11 @@ hitIt = () => {
       <button onClick={this.hitIt}>Search</button><br></br>
 
       <>
+      
       {JSON.stringify(this.props.search)}
-      {this.props.search.Title}
+      
+      {this.props.search.Title}<br></br>
+      {this.props.search.Plot}<br></br>
       <img src={this.props.search.Poster} width="50px" height="75px"/>
       
       
