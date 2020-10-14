@@ -56,16 +56,16 @@ hitIt = () => {
 
       <>
       
-      {JSON.stringify(this.props.search.Search)}
+      {/* {JSON.stringify(this.props.search)} */}
 
       {/* {this.props.search.map ( movie =>
         <li key={movie.id}>
           {movie.Title}
         </li>)} */}
       
-      {/* {this.props.search.Title}<br></br>
+      {this.props.search.Title}<br></br>
       {this.props.search.Plot}<br></br>
-      <img src={this.props.search.Poster} width="50px" height="75px"/> */}
+      <img src={this.props.search.Poster} width="50px" height="75px"/>
       
       
       </>
