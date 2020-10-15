@@ -56,17 +56,23 @@ hitIt = () => {
 
       <>
       
-    {/* {JSON.stringify(this.props.search,null ,2)} */}
+    {JSON.stringify(this.props.search.Search, null ,2)}
 
-      {/* {this.props.search.map ( (movie,i) =>
-        <li key={movie.id}>
-          {movie.Title}
-        </li>)} */}
+    
+      {/* {this.props.search.map((movie, i)=>
+      <li key={i}>
+        {movie}
+      </li>
+
+      )} */}
+    
+        
       
-      Title :{this.props.search.Title}<br></br>
+      {/* Title :{this.props.search.Title}<br></br>
       Plot: {this.props.search.Plot}<br></br>
-      Poster: <img src={this.props.search.Poster} width="50px" height="75px"/><br></br>
+      Poster: <img src={this.props.search.Poster} /><br></br>
       IMDb ID: {this.props.search.imdbID}
+       <button>Add to queue:</button> */}
       
       {/* {this.props.reduxState.search} */}
       

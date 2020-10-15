@@ -1,4 +1,4 @@
-const searchReducer = (state = {}, action) => {
+const searchReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_MOVIE':
         return action.payload;
