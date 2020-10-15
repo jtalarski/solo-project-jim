@@ -1,23 +1,52 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import React from 'react';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom'
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
-class TemplateClass extends Component {
-  state = {
-    heading: 'Class Component',
-  };
+
+class SearchPage extends React.Component {
+state = {
+  search: ""
+}
+
+searchTerm = (event) => {
+  this.setState({
+    search: event.target.value
+  })
+}
+
+hitIt = () => {
+  this.props.dispatch({
+    type: 'FETCH_MOVIE',
+    payload: this.state.search
+  });
+  
+}
 
   render() {
     return (
       <div>
-        <h2>{this.state.heading}</h2>
+        <p>Search and Add a Movie</p>
+        <input
+        type="text"
+        placeholder="Enter movie title"
+        onChange={this.searchTerm}
+        />
+      <button onClick={this.hitIt}>Search</button><br></br>
+
+      <>
+      
+      {JSON.stringify(this.props.search.Search, null ,2)}
+
+      {this.props.search.map((movie, i) =>
+        <li>{movie.Title}</li>)}
+
+      </>
+
       </div>
-    );
+    )
   }
 }
-
-export default connect(mapStoreToProps)(TemplateClass);
+const mapStateToProp = reduxState => ({
+  search: reduxState.search
+});
+export default connect(mapStateToProp)(withRouter(SearchPage));

@@ -1,26 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
-
-// const InfoPage = () => (
-//   <div>
-//     <p>
-//       Shelf Page
-//     </p>
-//     <>
-//     <input 
-//     onChange={(event)=>this.handleChangeFor(event,'search')}>Search</input>
-//     <button>Search</button>
-//     </>
-//   </div>
-// );
-
-// If you needed to add local state or other things,
-// you can make it a class component like:
+import {withRouter} from 'react-router-dom'
 
 
 class InfoPage extends React.Component {
@@ -42,7 +22,6 @@ hitIt = () => {
   
 }
 
-
   render() {
     return (
       <div>
@@ -56,26 +35,8 @@ hitIt = () => {
 
       <>
       
-    {JSON.stringify(this.props.search.Search, null ,2)}
+      {JSON.stringify(this.props.search.Search, null ,2)}
 
-    
-      {/* {this.props.search.map((movie, i)=>
-      <li key={i}>
-        {movie}
-      </li>
-
-      )} */}
-    
-        
-      
-      {/* Title :{this.props.search.Title}<br></br>
-      Plot: {this.props.search.Plot}<br></br>
-      Poster: <img src={this.props.search.Poster} /><br></br>
-      IMDb ID: {this.props.search.imdbID}
-       <button>Add to queue:</button> */}
-      
-      {/* {this.props.reduxState.search} */}
-      
       </>
 
       </div>

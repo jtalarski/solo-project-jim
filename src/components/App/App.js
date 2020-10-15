@@ -19,6 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import SearchPage from '../SearchPage/SearchPage';
+import ManageQueue from '../ManageQueuePage/ManageQueuePage'
 
 import './App.css';
 
@@ -62,6 +64,18 @@ class App extends Component {
               component={InfoPage}
             />
 
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/search"
+              component={SearchPage}
+            />  
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/queue"
+              component={ManageQueue}
+            />
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}

@@ -7,8 +7,9 @@ function* fetchMovie(action) {
     let response = yield axios ({
         method: 'GET',
         url: `/api/shelf/${action.payload}`
+        //url: `/api/search/${action.payload}`
     });
-    console.log('GET /info response', response.data);
+    console.log('GET /search response', response.data);
     yield put ({
         type: 'SET_MOVIE',
         payload: response.data
