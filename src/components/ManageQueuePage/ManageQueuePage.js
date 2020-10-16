@@ -29,6 +29,9 @@ fetchQueue=()=> {
       <div>
         <h2>{this.state.heading}</h2>
         <pre>{JSON.stringify(this.props.queue)}</pre>
+        <table></table>
+        {this.props.queue.map(movie =>
+          <li>Title:{movie.title}<br></br>Status:{movie.status}<button>Status Update</button><button>Delete</button></li>)}
       </div>
     );
   }
