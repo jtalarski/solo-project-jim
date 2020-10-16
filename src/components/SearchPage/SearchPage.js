@@ -41,7 +41,7 @@ addToQueue = () =>
 
       <>
       
-      {/* {JSON.stringify(this.props.search)} */}
+      <pre>{JSON.stringify(this.props.search, null, 2)}</pre>
 
       <>
       <p>Is this the movie you are looking for?</p>

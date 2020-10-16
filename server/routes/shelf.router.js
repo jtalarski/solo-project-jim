@@ -12,7 +12,6 @@ router.get('/:tacos', (req, res) => {
   console.log('made it to the router')
   axios({
     method: 'GET',
-    //url: `http://www.omdbapi.com/?apikey=f23200b4&s=${req.params.tacos}&type=movie`
     url: `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&t=${req.params.tacos}`
 
   }).then(response => {
