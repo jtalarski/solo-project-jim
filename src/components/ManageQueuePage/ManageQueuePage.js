@@ -24,14 +24,22 @@ fetchQueue=()=> {
   });
 }
 
+statusUpdate=() => {
+  console.log('in statusUpdate')
+}
+
+deleteMedia=() => {
+  console.log('in deleteMedia');
+}
+
   render() {
     return (
       <div>
         <h2>{this.state.heading}</h2>
-        <pre>{JSON.stringify(this.props.queue)}</pre>
+        {/* <pre>{JSON.stringify(this.props.queue)}</pre> */}
         <table></table>
         {this.props.queue.map(movie =>
-          <li>Title:{movie.title}<br></br>Status:{movie.status}<button>Status Update</button><button>Delete</button></li>)}
+          <li key={movie.fm_table_id}>Title:{movie.title}<br></br>Status:{movie.status}<button onClick={this.statusUpdate}>Status Update</button><button onClick={this.deleteMedia}>Delete</button></li>)}
       </div>
     );
   }
