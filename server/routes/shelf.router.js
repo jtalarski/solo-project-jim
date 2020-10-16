@@ -13,7 +13,7 @@ router.get('/:tacos', (req, res) => {
   axios({
     method: 'GET',
     //url: `http://www.omdbapi.com/?apikey=f23200b4&s=${req.params.tacos}&type=movie`
-    url: `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${req.params.tacos}`
+    url: `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&t=${req.params.tacos}`
 
   }).then(response => {
     console.log('got back OMBd data', response.data);

@@ -22,6 +22,12 @@ hitIt = () => {
   
 }
 
+
+addToQueue = () =>
+    console.log('in addToQueue');
+
+
+
   render() {
     return (
       <div>
@@ -35,10 +41,22 @@ hitIt = () => {
 
       <>
       
-      {JSON.stringify(this.props.search.Search, null ,2)}
+      {/* {JSON.stringify(this.props.search)} */}
 
-      {this.props.search.map((movie, i) =>
-        <li>{movie.Title}</li>)}
+      <>
+      <p>Is this the movie you are looking for?</p>
+      {this.props.search.Title}<br></br>
+      {this.props.search.Plot}<br></br>
+      <button onClick={this.addToQueue}>Yes! Add Movie to My Queue</button>
+      </>
+
+{/*    ## Cannot get map of search results to work. Moving
+       ## to using Title search versus wide open search      
+        
+        {this.props.search.map((movie,i) =>
+            <li key={movie.imdbID}>
+                {movie.Title}
+            </li>)} */}
 
       </>
 
