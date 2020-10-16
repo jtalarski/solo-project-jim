@@ -1,23 +1,41 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import React from 'react';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom'
+//import mapStoreToProps from '../../redux/mapStoreToProps';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
 class ManageQueue extends React.Component {
+ componentDidMount () {
+   this.fetchQueue();
+ }
+ 
+ 
   state = {
     heading: 'Manage Queue',
   };
+
+fetchQueue=()=> {
+  console.log('In fetchQueue');
+  this.props.dispatch({
+    type: 'FETCH_QUEUE'
+  });
+}
 
   render() {
     return (
       <div>
         <h2>{this.state.heading}</h2>
+        <pre>{JSON.stringify(this.props.queue)}</pre>
       </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(ManageQueue);
+const mapStateToProp = reduxState => ({
+  queue: reduxState.queue
+});
+
+export default connect(mapStateToProp)(withRouter(ManageQueue));
