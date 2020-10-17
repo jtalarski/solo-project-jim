@@ -54,15 +54,15 @@ deleteMedia=(event) => {
         <table></table>
         {this.props.queue.map(movie =>
           <li key={movie.fm_table_id}>
-            Title:{movie.title}<br></br>
+            Title:  {movie.title}<br></br>
             Internal ID: {movie.fm_table_id}<br></br>
-            Status:{movie.status}
-            <button id={movie.fm_table_id} onClick={this.statusUpdate}>Status Update</button>
-            <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
+            Status:  {movie.status}<br></br>
+            {/* <button id={movie.fm_table_id} onClick={this.statusUpdate}>Status Update</button> */}
+            Set New Status:  <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
               <option>New Status</option>
               <option value="Watched">Watched</option>
               <option value="Watching">Watching</option>
-            </select>
+            </select><br></br>
             <button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button>
           </li>
           )}
