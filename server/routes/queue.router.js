@@ -28,4 +28,17 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
+router.delete('/:id', (req, res) => {
+  console.log('hit router.delete', req.params.id);
+  const queryText = `DELETE FROM "friend_movie" WHERE "fm_table_id" =$1;`;
+  pool.query(queryText, [req.params.id])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing DELETE queue query', err);
+      res.sendStatus(500);
+    });
+});
+
+
+
 module.exports = router;

@@ -28,8 +28,12 @@ statusUpdate=() => {
   console.log('in statusUpdate')
 }
 
-deleteMedia=() => {
-  console.log('in deleteMedia');
+deleteMedia=(event) => {
+  console.log('in deleteMedia', event.target.id);
+  this.props.dispatch({
+    type: 'DELETE_QUEUE',
+    payload: event.target.id
+  })
 }
 
   render() {
@@ -39,7 +43,14 @@ deleteMedia=() => {
         {/* <pre>{JSON.stringify(this.props.queue)}</pre> */}
         <table></table>
         {this.props.queue.map(movie =>
-          <li key={movie.fm_table_id}>Title:{movie.title}<br></br>Status:{movie.status}<button onClick={this.statusUpdate}>Status Update</button><button onClick={this.deleteMedia}>Delete</button></li>)}
+          <li key={movie.fm_table_id}>
+            Title:{movie.title}<br></br>
+            Internal ID: {movie.fm_table_id}<br></br>
+            Status:{movie.status}
+            <button id={movie.fm_table_id} onClick={this.statusUpdate}>Status Update</button>
+            <button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button>
+          </li>
+          )}
       </div>
     );
   }
