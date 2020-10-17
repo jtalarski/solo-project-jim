@@ -5,66 +5,66 @@ import {withRouter} from 'react-router-dom'
 
 class SearchPage extends React.Component {
 state = {
-  search: ""
+  newMedia: {
+    user: this.props.user.id,
+    title: '',
+    plot: '',
+    type: ''
+  }
 }
 
-searchTerm = (event) => {
+addToQueue = () => {
+  this.props.dispatch({
+    type: 'ADD_MEDIA',
+    payload: this.state.newMedia
+  })
+}
+    
+
+
+handleChangeFor = (event, propertyName) => {
   this.setState({
-    search: event.target.value
+    newMedia: {
+      ...this.state.newMedia,
+      [propertyName]: event.target.value
+    }
   })
 }
 
-hitIt = () => {
-  this.props.dispatch({
-    type: 'FETCH_MOVIE',
-    payload: this.state.search
-  });
-  
-}
-
-
-addToQueue = () =>
-    console.log('in addToQueue');
-
-
 
   render() {
+    console.log('this user', this.props.user.id)
     return (
       <div>
-        <p>Search and Add a Movie</p>
-        <input
-        type="text"
-        placeholder="Enter movie title"
-        onChange={this.searchTerm}
-        />
-      <button onClick={this.hitIt}>Search</button><br></br>
-
-      <>
+      <p>What media would you like to add to your queue?</p>  
+      <input
+        placeholder='Title'
+        type='text'
+        // value={this.state.newMedia.title}
+        onChange={(event) => this.handleChangeFor(event, 'title')}
+      />
+      <input
+        placeholder='Plot'
+        type='text'
+        // value={this.state.newMedia.plot}
+        onChange={(event) => this.handleChangeFor(event, 'plot')}
+      />
+      <input
+        placeholder='Type: Movie or Series'
+        type='text'
+        //value={this.state.newMedia.type}
+        onChange={(event) => this.handleChangeFor(event, 'type')}
+      />
+      <button onClick={this.addToQueue}>Add To My Queue!</button>
       
-      <pre>{JSON.stringify(this.props.search, null, 2)}</pre>
-
-      <>
-      <p>Is this the movie you are looking for?</p>
-      {this.props.search.Title}<br></br>
-      {this.props.search.Plot}<br></br>
-      <button onClick={this.addToQueue}>Yes! Add Movie to My Queue</button>
-      </>
-
-{/*    ## Cannot get map of search results to work. Moving
-       ## to using Title search versus wide open search      
-        
-        {this.props.search.map((movie,i) =>
-            <li key={movie.imdbID}>
-                {movie.Title}
-            </li>)} */}
-
-      </>
+  
 
       </div>
     )
   }
 }
 const mapStateToProp = reduxState => ({
-  search: reduxState.search
+  search: reduxState.search,
+  user: reduxState.user
 });
 export default connect(mapStateToProp)(withRouter(SearchPage));

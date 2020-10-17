@@ -57,7 +57,8 @@ deleteMedia=(event) => {
 }
 
 const mapStateToProp = reduxState => ({
-  queue: reduxState.queue
+  queue: reduxState.queue,
+  user: reduxState.user
 });
 
 export default connect(mapStateToProp)(withRouter(ManageQueue));
