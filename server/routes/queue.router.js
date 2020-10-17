@@ -62,6 +62,16 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  console.log('hit router.put', req.body.idToChange, req.body.statusUpdate)
+  const queryText = `UPDATE "friend_movie" SET "status" = $1 WHERE "fm_table_id" = $2;`
+  pool.query(queryText, [req.body.statusUpdate, req.body.idToChange])
+  .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing UPDATE query', err);
+      res.sendStatus(500);
+    });
+});
 
 
 module.exports = router;
