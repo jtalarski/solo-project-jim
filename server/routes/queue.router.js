@@ -27,14 +27,23 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log('POST router got a hit');
   const queryText = `INSERT INTO "movie" ("title", "description", "type")
-                    VALUES ($1, $2, $3);`;
+                    VALUES ($1, $2, $3)
+                    RETURNING "movie_table_id";`;
   const queryValues = [
     req.body.title,
     req.body.plot,
     req.body.type
   ];
-  pool.query(queryText, queryValues).then(result => {
-    console.log('Media adde in POST:', result);
+  pool.query(queryText, queryValues)
+  .then(result => {
+    console.log('New is movie_table_id :', result.rows[0].movie_table_id);
+    const createMovieTableId = result.rows[0].movie_table_id
+
+    const insertMovieFriendQuery = `
+    INSERT INTO "friend_movie" ("movie_id", "friend_id")
+    VALUES ($1, $2);`
+
+    pool.query(insertMovieFriendQuery,[createMovieTableId, req.body.user])
     res.sendStatus(201);
   }).catch(err => {
     console.error('Failed in create media', err);
