@@ -14,7 +14,10 @@ class ManageQueue extends React.Component {
  
  
   state = {
-    heading: 'Manage Queue',
+    mediaStatus: {
+      friend_movie_id: '',
+      newStatus:  ''
+    }
   };
 
 fetchQueue=()=> {
@@ -24,8 +27,15 @@ fetchQueue=()=> {
   });
 }
 
-statusUpdate=() => {
-  console.log('in statusUpdate')
+statusUpdate= (event) => {
+  console.log('in statusUpdate', event.target.id, event.target.value);
+  this.props.dispatch({
+    type: "CHANGE_STATUS",
+    payload: {
+      idToChange: event.target.id,
+      statusUpdate: event.target.value
+    }
+  })
 }
 
 deleteMedia=(event) => {
@@ -39,7 +49,7 @@ deleteMedia=(event) => {
   render() {
     return (
       <div>
-        <h2>{this.state.heading}</h2>
+        <h2>Manage Queue</h2>
         {/* <pre>{JSON.stringify(this.props.queue)}</pre> */}
         <table></table>
         {this.props.queue.map(movie =>
@@ -48,6 +58,11 @@ deleteMedia=(event) => {
             Internal ID: {movie.fm_table_id}<br></br>
             Status:{movie.status}
             <button id={movie.fm_table_id} onClick={this.statusUpdate}>Status Update</button>
+            <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
+              <option>New Status</option>
+              <option value="Watched">Watched</option>
+              <option value="Watching">Watching</option>
+            </select>
             <button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button>
           </li>
           )}
