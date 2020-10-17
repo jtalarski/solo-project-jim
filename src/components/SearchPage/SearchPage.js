@@ -34,6 +34,7 @@ handleChangeFor = (event, propertyName) => {
 
   render() {
     console.log('this user', this.props.user.id)
+    
     return (
       <div>
       <p>What media would you like to add to your queue?</p>  
@@ -65,6 +66,7 @@ handleChangeFor = (event, propertyName) => {
 }
 const mapStateToProp = reduxState => ({
   search: reduxState.search,
-  user: reduxState.user
+  user: reduxState.user,
+  newMedia: reduxState.newMedia
 });
 export default connect(mapStateToProp)(withRouter(SearchPage));

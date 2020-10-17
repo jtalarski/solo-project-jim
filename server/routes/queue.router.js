@@ -25,7 +25,21 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  console.log('POST router got a hit');
+  const queryText = `INSERT INTO "movie" ("title", "description", "type")
+                    VALUES ($1, $2, $3);`;
+  const queryValues = [
+    req.body.title,
+    req.body.plot,
+    req.body.type
+  ];
+  pool.query(queryText, queryValues).then(result => {
+    console.log('Media adde in POST:', result);
+    res.sendStatus(201);
+  }).catch(err => {
+    console.error('Failed in create media', err);
+    res.sendStatus(500);
+  });
 });
 
 router.delete('/:id', (req, res) => {
