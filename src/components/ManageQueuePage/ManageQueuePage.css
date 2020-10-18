@@ -5,12 +5,24 @@
 table {
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 tr:nth-child(even) {
     background-color: #dddddd
 }
 
+th {
+    border-bottom: 1px solid black;
+    padding: 8px
+}
+
 td {
     text-align: left;
+    padding: 8px
+}
+
+.centerTD {
+    text-align: center;
 }
