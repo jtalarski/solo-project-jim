@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   ON "user"."id" = "friend_movie"."friend_id"
   JOIN "movie"
   ON "friend_movie"."movie_id" = "movie"."movie_table_id"
-  WHERE "user"."id" = $1
+  WHERE "user"."id" = $1 AND "friend_movie"."status" NOT LIKE 'Watched'
   ORDER BY "friend_movie"."status";`;
   pool.query(queryText, [req.user.id])
   .then((result) => { res.send(result.rows); 
