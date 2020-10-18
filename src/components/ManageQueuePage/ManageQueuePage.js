@@ -12,9 +12,7 @@ import './ManageQueuePage.css';
 class ManageQueue extends React.Component {
  componentDidMount () {
    this.fetchQueue();
-   this.props.dispatch ({
-     type: 'FETCH_WATCHED'
-   })
+   this.fetchWatched()
  }
  
  
@@ -24,6 +22,10 @@ class ManageQueue extends React.Component {
       newStatus:  ''
     }
   };
+fetchWatched= ()=>
+this.props.dispatch ({
+  type: 'FETCH_WATCHED'
+})
 
 fetchQueue=()=> {
   console.log('In fetchQueue');
@@ -40,8 +42,9 @@ statusUpdate= (event) => {
       idToChange: event.target.id,
       statusUpdate: event.target.value
     }
-  })
-  
+  });
+  this.fetchQueue();
+  this.fetchWatched();
 }
 
 deleteMedia=(event) => {
@@ -83,6 +86,7 @@ deleteMedia=(event) => {
               <td>{movie.status}</td>
               <td className="centerTD">
                 <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
+                <option selected disabled>Choose Status</option>
                 <option value="In Queue">In Queue</option>
                 <option value="Watched">Watched</option>
                 <option value="Watching">Watching</option>
