@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import './ManageQueuePage.css';
+//import WatchedPage from '../WatchedPage/WatchedPage'
 //import mapStoreToProps from '../../redux/mapStoreToProps';
 
 // Basic class component structure for React with default state
@@ -11,6 +12,9 @@ import './ManageQueuePage.css';
 class ManageQueue extends React.Component {
  componentDidMount () {
    this.fetchQueue();
+   this.props.dispatch ({
+     type: 'FETCH_WATCHED'
+   })
  }
  
  
@@ -37,6 +41,7 @@ statusUpdate= (event) => {
       statusUpdate: event.target.value
     }
   })
+  
 }
 
 deleteMedia=(event) => {
@@ -76,7 +81,7 @@ deleteMedia=(event) => {
             <tr>
               <td>{movie.title}</td>
               <td>{movie.status}</td>
-              <td>
+              <td className="centerTD">
                 <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
                 <option value="In Queue">In Queue</option>
                 <option value="Watched">Watched</option>
@@ -85,11 +90,26 @@ deleteMedia=(event) => {
             </td>
               <td><button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
             </tr>)}
-
+      </table>
+      <h2 className="title">Here is what you already watched</h2>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Back To Queue</th>
+          <th>Delete</th>
+        </tr>
+        {this.props.watched.map (watched =>
+          <tr>
+            <td>{watched.title}</td>
+            <td>{watched.status}</td>
+            <td className="centerTD">
+              <button id={watched.fm_table_id} value="In Queue" onClick={this.statusUpdate}>Back To Queue</button>
+            </td>
+            <td><button id={watched.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
+          </tr>)}
 
       </table>
-      
-      
        
       </div>
     );
@@ -98,7 +118,8 @@ deleteMedia=(event) => {
 
 const mapStateToProp = reduxState => ({
   queue: reduxState.queue,
-  user: reduxState.user
+  user: reduxState.user,
+  watched: reduxState.watched
 });
 
 export default connect(mapStateToProp)(withRouter(ManageQueue));
