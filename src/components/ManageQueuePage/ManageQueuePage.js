@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import './ManageQueuePage.css';
 //import mapStoreToProps from '../../redux/mapStoreToProps';
 
 // Basic class component structure for React with default state
@@ -49,15 +50,13 @@ deleteMedia=(event) => {
   render() {
     return (
       <div>
-        <h2>Manage Queue</h2>
+        <h2 className="title">Manage Your Active Queue, {this.props.user.first_name}</h2>
         {/* <pre>{JSON.stringify(this.props.queue)}</pre> */}
-        <table></table>
-        {this.props.queue.map(movie =>
+        {/* {this.props.queue.map(movie =>
           <li key={movie.fm_table_id}>
             Title:  {movie.title}<br></br>
             Internal ID: {movie.fm_table_id}<br></br>
             Status:  {movie.status}<br></br>
-            {/* <button id={movie.fm_table_id} onClick={this.statusUpdate}>Status Update</button> */}
             Set New Status:  <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
               <option>New Status</option>
               <option value="Watched">Watched</option>
@@ -65,7 +64,33 @@ deleteMedia=(event) => {
             </select><br></br>
             <button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button>
           </li>
-          )}
+          )} */}
+      <table className="queueTable">
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Change Status</th>
+            <th>Delete</th>
+          </tr>
+          {this.props.queue.map (movie =>
+            <tr>
+              <td>{movie.title}</td>
+              <td>{movie.status}</td>
+              <td>
+                <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
+                <option value="In Queue">In Queue</option>
+                <option value="Watched">Watched</option>
+                <option value="Watching">Watching</option>
+              </select>
+            </td>
+              <td><button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
+            </tr>)}
+
+
+      </table>
+      
+      
+       
       </div>
     );
   }

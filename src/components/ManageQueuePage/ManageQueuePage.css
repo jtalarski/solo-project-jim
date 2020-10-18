@@ -1,0 +1,16 @@
+.title {
+ text-align: center;   
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd
+}
+
+td {
+    text-align: left;
+}
