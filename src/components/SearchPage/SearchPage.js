@@ -4,7 +4,13 @@ import {withRouter} from 'react-router-dom'
 import './SearchPage.css'
 
 class SearchPage extends React.Component {
-state = {
+componentDidMount () {
+  this.fetchFriendsQ();
+}
+
+
+
+  state = {
   newMedia: {
     user: this.props.user.id,
     title: '',
@@ -20,7 +26,12 @@ addToQueue = () => {
   })
 }
     
-
+fetchFriendsQ = () => {
+  console.log('in fetchFriendsQ');
+  this.props.dispatch({
+    type: 'FETCH_FRIENDSQ'
+  });
+}
 
 handleChangeFor = (event, propertyName) => {
   this.setState({
@@ -46,6 +57,8 @@ typeSet = (event) => {
     
     return (
       <div>
+      <pre>{JSON.stringify(this.props.friends)}</pre>
+      
       <p>What media would you like to add to your queue?</p>  
       <input
         placeholder='Title'
@@ -68,7 +81,7 @@ typeSet = (event) => {
       <select name="type" onClick={this.typeSet}>
         <option selected disabled>Movie or Series</option>
         <option value="Movie">Movie</option>
-        <option Value="Series">Series</option>
+        <option value="Series">Series</option>
       </select>
 
       <button onClick={this.addToQueue}>Add To My Queue!</button>
@@ -82,6 +95,7 @@ typeSet = (event) => {
 const mapStateToProp = reduxState => ({
   search: reduxState.search,
   user: reduxState.user,
-  newMedia: reduxState.newMedia
+  newMedia: reduxState.newMedia,
+  friends: reduxState.friends
 });
 export default connect(mapStateToProp)(withRouter(SearchPage));
