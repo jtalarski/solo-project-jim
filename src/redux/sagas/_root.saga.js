@@ -5,9 +5,10 @@ import userSaga from './user.saga';
 import searchSaga from './search.saga';
 import queueSaga from './queue.saga';
 import deleteQueueSaga from './deleteQueue.saga';
-import addMediaSaga from './createMedia.saga'
-import updateSaga from './update.saga'
+import addMediaSaga from './createMedia.saga';
+import updateSaga from './update.saga';
 import watchedSaga from './watched.saga';
+import friendsSaga from './friends.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +27,7 @@ export default function* rootSaga() {
     deleteQueueSaga(),
     addMediaSaga(),
     updateSaga(),
-    watchedSaga()
+    watchedSaga(),
+    friendsSaga(),
   ]);
 }

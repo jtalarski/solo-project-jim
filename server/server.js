@@ -12,7 +12,7 @@ const userRouter = require('./routes/user.router');
 const shelfRouter = require('./routes/shelf.router');
 const queueRouter = require('./routes/queue.router');
 const watchedQueueRouter =require('./routes/watchedQueue.router');
-
+const friendsRouter = require('./routes/friends.router')
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +28,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/shelf', shelfRouter);
 app.use('/api/queue', queueRouter);
-app.use('/api/queue/watched', watchedQueueRouter)
+app.use('/api/queue/watched', watchedQueueRouter);
+app.use('/api/queue/friends', friendsRouter);
 
 // Serve static files
 app.use(express.static('build'));
