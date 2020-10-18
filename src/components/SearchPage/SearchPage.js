@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
-
+import './SearchPage.css'
 
 class SearchPage extends React.Component {
 state = {
@@ -31,6 +31,15 @@ handleChangeFor = (event, propertyName) => {
   })
 }
 
+typeSet = (event) => {
+  this.setState({
+    newMedia: {
+      ...this.state.newMedia,
+      type: event.target.value
+    }
+  })
+}
+
 
   render() {
     console.log('this user', this.props.user.id)
@@ -50,12 +59,18 @@ handleChangeFor = (event, propertyName) => {
         // value={this.state.newMedia.plot}
         onChange={(event) => this.handleChangeFor(event, 'plot')}
       />
-      <input
+      {/* <input
         placeholder='Type: Movie or Series'
         type='text'
         //value={this.state.newMedia.type}
         onChange={(event) => this.handleChangeFor(event, 'type')}
-      />
+      /> */}
+      <select name="type" onClick={this.typeSet}>
+        <option selected disabled>Movie or Series</option>
+        <option value="Movie">Movie</option>
+        <option Value="Series">Series</option>
+      </select>
+
       <button onClick={this.addToQueue}>Add To My Queue!</button>
       
   

@@ -59,20 +59,6 @@ deleteMedia=(event) => {
     return (
       <div>
         <h2 className="title">Manage Your Active Queue, {this.props.user.first_name}</h2>
-        {/* <pre>{JSON.stringify(this.props.queue)}</pre> */}
-        {/* {this.props.queue.map(movie =>
-          <li key={movie.fm_table_id}>
-            Title:  {movie.title}<br></br>
-            Internal ID: {movie.fm_table_id}<br></br>
-            Status:  {movie.status}<br></br>
-            Set New Status:  <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
-              <option>New Status</option>
-              <option value="Watched">Watched</option>
-              <option value="Watching">Watching</option>
-            </select><br></br>
-            <button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button>
-          </li>
-          )} */}
       <table className="queueTable">
           <tr>
             <th>Title</th>
@@ -81,17 +67,17 @@ deleteMedia=(event) => {
             <th>Delete</th>
           </tr>
           {this.props.queue.map (movie =>
-            <tr>
+            <tr key={movie.fm_table_id}>
               <td>{movie.title}</td>
               <td>{movie.status}</td>
               <td className="centerTD">
                 <select id={movie.fm_table_id} name="status" onChange={this.statusUpdate}>
-                <option selected disabled>Choose Status</option>
-                <option value="In Queue">In Queue</option>
-                <option value="Watched">Watched</option>
-                <option value="Watching">Watching</option>
-              </select>
-            </td>
+                  <option selected disabled>Choose Status</option>
+                  <option value="In Queue">In Queue</option>
+                  <option value="Watched">Watched</option>
+                  <option value="Watching">Watching</option>
+                </select>
+              </td>
               <td><button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
             </tr>)}
       </table>
