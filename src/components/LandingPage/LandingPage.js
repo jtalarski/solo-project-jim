@@ -24,7 +24,7 @@ class LandingPage extends Component {
         <div className="grid">
           <div className="grid-col grid-col_8">
             <p>
-              This is the place to keep track of all the movies and series! 
+              This is the place to keep track of all the movies and series you watch! 
             </p>
             <p>
               Even better you can keep up with your friends' viewing.
