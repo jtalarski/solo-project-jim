@@ -49,6 +49,7 @@ Button
 .btn_sizeSm {
   padding: 10px 15px;
   font-size: 0.8rem;
+  margin-bottom: 20px;
 }
 
 .btn_sizeFull {
@@ -111,4 +112,33 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+/*---- Other Stuff ----------------*/
+
+.marginbtm {
+  margin-bottom: 20px;
+}
+
+.userCenter {
+  text-align: center;
+}
+
+.aboutCenter {
+  text-align: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btnColor {
+  background-color: #00acb0;
+  color: white;
+  font-size: 1em;
+  margin: 10px;
+  margin-bottom: 20px; 
+}
+
+.tallPara {
+  font-size: x-large;
 }
