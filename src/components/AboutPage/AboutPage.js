@@ -7,8 +7,13 @@ import React from 'react';
 
 const AboutPage = () => (
   <div className="container">
-    <div>
-      <p>This about page is for anyone to read!</p>
+    <div className="aboutCenter">
+      <h2>About watchUwatch</h2>
+      <p>watchUwatch is my solo project for my time at Prime Academy. It is a full-stack
+        application that is enabled mainly with React, Redux and Redux-Sagas. Also 
+        employed are Node, Express, Passport, Postgres and the Open Movie 
+        Database API. CSS and associated libraries were used for styling.
+      </p>
     </div>
   </div>
 );

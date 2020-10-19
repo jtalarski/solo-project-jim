@@ -9,6 +9,7 @@ import addMediaSaga from './createMedia.saga';
 import updateSaga from './update.saga';
 import watchedSaga from './watched.saga';
 import friendsSaga from './friends.saga';
+import recommendSaga from './recommend.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     updateSaga(),
     watchedSaga(),
     friendsSaga(),
+    recommendSaga(),
   ]);
 }

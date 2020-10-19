@@ -2,6 +2,10 @@ button {
     margin: 3px;
 }
 
+table {
+    width: 80%;
+}
+
 select {
     margin: 3px;
 }
@@ -10,3 +14,24 @@ input {
     margin: 3px;
 }
 
+.wideColumn {
+    max-width: 50%;
+    word-wrap: break-word;
+}
+
+h3 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+.thLeft {
+    text-align: left;
+}
+
+thead {
+  background-color: #00acb0;
+  color: white;
+}

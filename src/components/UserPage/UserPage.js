@@ -5,12 +5,21 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 
 class UserPage extends Component {
 
+  moveToAddQueue = () => {
+    this.props.history.push('/addmovie')
+  }
+  moveToManageQueue = () => {
+    this.props.history.push('/queue')
+  }
   // this component doesn't do much to start, just renders some user info to the DOM
   render(props) {
     return (
-      <div>
-        <h1 id="welcome">Welcome, {this.props.user.first_name}!</h1>
-        <p>Your ID is: {this.props.user.id}</p>
+      <div className="userCenter">
+        <h1 id="welcome">Welcome to watchUwatch, {this.props.user.first_name}!</h1>
+        {/* <p>Your ID is: {this.props.user.id}</p> */}
+        <p className="tallPara">What would you like to do?</p>
+          <button className="btn_sizeSm btnColor" onClick={this.moveToAddQueue}>Add To Queue</button>
+          <button className="btn_sizeSm btnColor" onClick={this.moveToManageQueue}>Manage Queue</button><br></br>
         <LogOutButton className="log-in" />
       </div>
     )
