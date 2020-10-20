@@ -95,6 +95,7 @@ typeSet = (event) => {
       <table>
         <thead>
           <tr>
+            <th className="thLeft">Poster</th>
             <th className="thLeft">Title</th>
             <th className="thLeft">Plot</th>
             <th>Type</th>
@@ -103,6 +104,7 @@ typeSet = (event) => {
           </thead>
           {this.props.friends.map (media =>
             <tr>
+              <td><img src={media.poster_url} ></img></td>
               <td>{media.title}</td>
               <td>{media.description}</td>
               <td>{media.type}</td>

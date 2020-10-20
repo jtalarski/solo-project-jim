@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   console.log('Get Friends Queue Router');
-  const queryText = `SELECT "user"."id", "movie"."title", "movie"."movie_table_id","movie"."description", "movie"."type", "friend_movie"."status", "friend_movie"."fm_table_id" FROM "user"
+  const queryText = `SELECT "user"."id", "movie"."title", "movie"."poster_url","movie"."movie_table_id","movie"."description", "movie"."type", "friend_movie"."status", "friend_movie"."fm_table_id" FROM "user"
   JOIN "friend_movie"
   ON "user"."id" = "friend_movie"."friend_id"
   JOIN "movie"
