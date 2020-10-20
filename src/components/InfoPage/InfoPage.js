@@ -35,7 +35,7 @@ hitIt = () => {
 
       <>
       
-      {JSON.stringify(this.props.search.Search, null ,2)}
+      <pre>{JSON.stringify(this.props.search, null ,2)}</pre>
 
       </>
 
