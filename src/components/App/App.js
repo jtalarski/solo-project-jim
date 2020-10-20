@@ -65,13 +65,13 @@ class App extends Component {
             />
 
             <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
+              // logged in shows SearchPage else shows LoginPage
               exact
               path="/addmovie"
               component={SearchPage}
             />  
             <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
+              // logged in shows ManageQueue else shows LoginPage
               exact
               path="/queue"
               component={ManageQueue}

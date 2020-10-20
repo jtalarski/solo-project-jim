@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import InfoPageItem from '../InfoPageItem/InfoPageItem'
 
 
 class InfoPage extends React.Component {
@@ -36,14 +37,14 @@ hitIt = () => {
       <>
       
       <pre>{JSON.stringify(this.props.search, null ,2)}</pre>
-
+      <InfoPageItem />
       </>
 
       </div>
     )
   }
 }
-const mapStateToProp = reduxState => ({
+const mapStateToProps = reduxState => ({
   search: reduxState.search
 });
-export default connect(mapStateToProp)(withRouter(InfoPage));
+export default connect(mapStateToProps)(withRouter(InfoPage));
