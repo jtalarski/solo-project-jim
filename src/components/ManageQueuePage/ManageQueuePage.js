@@ -15,25 +15,38 @@ class ManageQueue extends React.Component {
    this.fetchWatched()
  }
  
- 
   state = {
     mediaStatus: {
       friend_movie_id: '',
       newStatus:  ''
     }
   };
+
+ // fetches list of media from auth's user's
+ // queue with status of watched upon component
+ // refresh. Dispatch answered by watchedSaga.
+ // Kicks off GET request using queueRoute
 fetchWatched= ()=>
 this.props.dispatch ({
   type: 'FETCH_WATCHED'
 })
 
+// fetches list of media from auth's user's
+// queue with status of watching or in queue 
+// upon component refresh. Dispatch answered
+// by queueSaga. Kicks off GET request using
+// watchedQueue route
 fetchQueue=()=> {
   console.log('In fetchQueue');
   this.props.dispatch({
     type: 'FETCH_QUEUE'
   });
 }
-
+// Sends dispatch answered by updateSaga. Will
+//lead to POST request through queueRouter. 
+// Dispatch will lead to change in friend_movie
+// table. Kicks of page refresh that will display
+// updated lists of movies in queue. 
 statusUpdate= (event) => {
   console.log('in statusUpdate', event.target.id, event.target.value);
   this.props.dispatch({
@@ -46,7 +59,9 @@ statusUpdate= (event) => {
   this.fetchQueue();
   this.fetchWatched();
 }
-
+// Sends dispatch that will be answered by
+// the deleteQueueSaga. Will lead to a 
+// DELETE request through QUEUE router. 
 deleteMedia=(event) => {
   console.log('in deleteMedia', event.target.id);
   this.props.dispatch({
@@ -106,10 +121,10 @@ deleteMedia=(event) => {
   }
 }
 
-const mapStateToProp = reduxState => ({
+const mapStateToProps = reduxState => ({
   queue: reduxState.queue,
   user: reduxState.user,
   watched: reduxState.watched
 });
 
-export default connect(mapStateToProp)(withRouter(ManageQueue));
+export default connect(mapStateToProps)(withRouter(ManageQueue));
