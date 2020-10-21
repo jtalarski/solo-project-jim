@@ -7,10 +7,6 @@ import swal from 'sweetalert';
 //import WatchedPage from '../WatchedPage/WatchedPage'
 //import mapStoreToProps from '../../redux/mapStoreToProps';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class ManageQueue extends React.Component {
  componentDidMount () {
    this.fetchQueue();
@@ -24,7 +20,7 @@ class ManageQueue extends React.Component {
     }
   };
 
- // fetches list of media from auth's user's
+ // Fetches list of media from auth's user's
  // queue with status of watched upon component
  // refresh. Dispatch answered by watchedSaga.
  // Kicks off GET request using queueRoute
@@ -33,7 +29,7 @@ this.props.dispatch ({
   type: 'FETCH_WATCHED'
 })
 
-// fetches list of media from auth's user's
+// Fetches list of media from auth's user's
 // queue with status of watching or in queue 
 // upon component refresh. Dispatch answered
 // by queueSaga. Kicks off GET request using
