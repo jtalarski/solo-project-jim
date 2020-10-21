@@ -97,7 +97,7 @@ deleteMedia=(event) => {
                   <option value="Watching">Watching</option>
                 </select>
               </td>
-              <td><button id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
+              <td><button className="queueBtn" id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
             </tr>)}
       </table>
       <h2 className="title">Here is what you already watched</h2>
@@ -113,9 +113,9 @@ deleteMedia=(event) => {
             <td>{watched.title}</td>
             <td>{watched.status}</td>
             <td className="centerTD">
-              <button id={watched.fm_table_id} value="In Queue" onClick={this.statusUpdate}>Back To Queue</button>
+              <button className="queueBtn" id={watched.fm_table_id} value="In Queue" onClick={this.statusUpdate}>Back To Queue</button>
             </td>
-            <td><button id={watched.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
+            <td><button className="queueBtn" id={watched.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
           </tr>)}
 
       </table>
