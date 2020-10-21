@@ -24,11 +24,12 @@ class LandingPage extends Component {
         <div className="grid">
           <div className="grid-col grid-col_8">
             <p>
-              This is the place to keep track of all the movies and series you watch! 
+              Deciding watch movie or series to stream next? Do your friends suggest
+              more viewing options than you can remember? If you answered yes to either 
+              questions in you are in the right place. watchUwatch will quickly become
+              your hub for trackig your viewing pleasures. 
             </p>
-            <p>
-              Even better you can keep up with your friends' viewing.
-            </p>
+            <img src="./seinfeld_vids.jpg"/>
           
           </div>
           <div className="grid-col grid-col_4">

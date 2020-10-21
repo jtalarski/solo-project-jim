@@ -21,7 +21,6 @@ componentDidMount () {
 }
 
 addToQueue = () => {
-  swal("Media Added","Track your viewing progress on the Manage Queue page", "success");
   this.props.dispatch({
     type: 'ADD_MEDIA',
     payload: this.state.newMedia
