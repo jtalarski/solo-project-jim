@@ -37,7 +37,14 @@ hitIt = () => {
       <>
       
       <pre>{JSON.stringify(this.props.search, null ,2)}</pre>
-      
+      <table>
+        <tr>
+          <td><img src={this.props.search.Poster}></img></td>
+          <td>{this.props.search.Title}</td>
+          <td>{this.props.search.Plot}</td>
+          <td><button>Add It</button></td>
+        </tr>
+      </table>
       
       
       

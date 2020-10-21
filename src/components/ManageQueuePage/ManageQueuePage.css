@@ -36,4 +36,9 @@ td {
 .queueBtn {
     background-color: steelblue;
     color: white;
+    border-radius: 8px;
+}
+
+.queueBtn:hover {
+    background-color:slategrey;
 }

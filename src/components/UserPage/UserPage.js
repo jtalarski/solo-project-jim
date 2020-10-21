@@ -27,11 +27,9 @@ class UserPage extends Component {
           <div className="header"><h1>M</h1></div>
           <div className="container"><p>Manage your queue</p></div>
         </div><br></br>
-{/* -- switched to using cards
-          <button className="btn_sizeSm btnColor" onClick={this.moveToAddQueue}>Add To Queue</button>
-          <button className="btn_sizeSm btnColor" onClick={this.moveToManageQueue}>Manage Queue</button><br></br>
-         */}
+{/* -- left from original code
         <LogOutButton className="log-in" />
+         */}
       </div>
     )
   }
