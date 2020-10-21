@@ -32,3 +32,8 @@ td {
 .queueShadow {
     box-shadow: 10px 10px 3px grey;
 }
+
+.queueBtn {
+    background-color: steelblue;
+    color: white;
+}
