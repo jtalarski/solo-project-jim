@@ -71,7 +71,7 @@ deleteMedia=(event) => {
     type: 'DELETE_QUEUE',
     payload: event.target.id
   });
-  swal("Going, going gone!","Media removed from queue", "success");
+  swal("Going, going, gone!","Media removed from queue", "success");
 }
 
   render() {

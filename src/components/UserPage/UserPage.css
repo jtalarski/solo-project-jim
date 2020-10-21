@@ -1,0 +1,27 @@
+div.card {
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    box-shadow: 10px 10px 3px grey;
+    text-align: center;
+    border: 1px solid grey;
+    margin: 15px;
+  }
+  
+  div.header {
+    background-color: steelblue;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+  }
+  
+  div.container {
+    padding: 10px;
+  }
+
+
+
+  
+
+  
