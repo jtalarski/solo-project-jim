@@ -78,3 +78,8 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+.landingText  {
+  font-size: 1.2em;
+  text-align: center;
+}
