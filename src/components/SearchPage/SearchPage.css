@@ -35,3 +35,8 @@ thead {
   background-color: #00acb0;
   color: white;
 }
+
+img {
+    height: 200px;
+    width: 65px;
+}
