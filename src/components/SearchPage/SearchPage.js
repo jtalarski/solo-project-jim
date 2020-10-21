@@ -73,7 +73,7 @@ typeSet = (event) => {
     return (
       <div>
       {/* <pre>{JSON.stringify(this.props.friends, null, 2)}</pre> */}
-      <h3>Want to add something new to your queue?</h3>  
+      <h1>Want to add something new to your queue?</h1>  
       <form>
         <input
         placeholder='Title'
@@ -96,8 +96,8 @@ typeSet = (event) => {
       <button onClick={this.addToQueue}>Add To My Queue!</button>
       </form>
       
-      <h3>Consider something that your friends are watching</h3>
-      <table>
+      <h2>Consider something that your friends are watching</h2>
+      <table className="queueShadow">
         <thead>
           <tr>
             <th className="thLeft">Poster</th>
@@ -113,7 +113,7 @@ typeSet = (event) => {
               <td>{media.title}</td>
               <td>{media.description}</td>
               <td>{media.type}</td>
-              <td><button id={media.movie_table_id} onClick={this.addIt}>Add It!</button></td>
+              <td><button className="addBtn" id={media.movie_table_id} onClick={this.addIt}>Add It!</button></td>
             </tr>)}
         
       </table>

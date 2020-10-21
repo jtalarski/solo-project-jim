@@ -19,7 +19,7 @@ input {
     word-wrap: break-word;
 }
 
-h3 {
+h3, h2, h1 {
     text-align: center;
 }
 
@@ -32,11 +32,19 @@ form {
 }
 
 thead {
-  background-color: #00acb0;
+  background-color: steelblue;
   color: white;
 }
 
 img {
     height: 200px;
     width: 65px;
+}
+.queueShadow {
+    box-shadow: 10px 10px 3px grey;
+}
+
+.addBtn {
+    background-color: steelblue;
+    color: white
 }
