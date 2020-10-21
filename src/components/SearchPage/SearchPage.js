@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom'
-import './SearchPage.css'
+import {withRouter} from 'react-router-dom';
+import './SearchPage.css';
+import swal from 'sweetalert';
 
 class SearchPage extends React.Component {
 componentDidMount () {
@@ -20,10 +21,13 @@ componentDidMount () {
 }
 
 addToQueue = () => {
+  swal("Media Added","Track your viewing progress on the Manage Queue page", "success");
   this.props.dispatch({
     type: 'ADD_MEDIA',
     payload: this.state.newMedia
-  })
+  });
+  this.fetchFriendsQ()
+  swal("Media added to your queue","", "success");
 }
     
 fetchFriendsQ = () => {
@@ -49,6 +53,7 @@ addIt = (event) => {
     payload: {
       id: event.target.id}
   });
+  swal("Media added to your queue","", "success");
   this.fetchFriendsQ();
 }
 

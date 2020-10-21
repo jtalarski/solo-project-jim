@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import './ManageQueuePage.css';
+import swal from 'sweetalert';
+
 //import WatchedPage from '../WatchedPage/WatchedPage'
 //import mapStoreToProps from '../../redux/mapStoreToProps';
 
@@ -56,6 +58,7 @@ statusUpdate= (event) => {
       statusUpdate: event.target.value
     }
   });
+  swal("status updated","", "success");
   this.fetchQueue();
   this.fetchWatched();
 }
@@ -67,20 +70,21 @@ deleteMedia=(event) => {
   this.props.dispatch({
     type: 'DELETE_QUEUE',
     payload: event.target.id
-  })
+  });
+  swal("Going, going gone!","Media removed from queue", "success");
 }
 
   render() {
     return (
-      <div>
+      <div >
         <h2 className="title">Manage Your Active Queue, {this.props.user.first_name}</h2>
-      <table className="queueTable">
-          <tr>
+      <table className="queueTable queueShadow">
+          <thead>
             <th>Title</th>
             <th>Status</th>
             <th>Change Status</th>
-            <th>Delete</th>
-          </tr>
+            <th>Remove</th>
+          </thead>
           {this.props.queue.map (movie =>
             <tr key={movie.fm_table_id}>
               <td>{movie.title}</td>
@@ -97,13 +101,13 @@ deleteMedia=(event) => {
             </tr>)}
       </table>
       <h2 className="title">Here is what you already watched</h2>
-      <table>
-        <tr>
+      <table className="queueTable queueShadow">
+        <thead>
           <th>Title</th>
           <th>Status</th>
           <th>Back To Queue</th>
           <th>Delete</th>
-        </tr>
+        </thead>
         {this.props.watched.map (watched =>
           <tr>
             <td>{watched.title}</td>

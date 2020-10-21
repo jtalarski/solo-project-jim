@@ -28,3 +28,7 @@ td {
 .centerTD {
     text-align: center;
 }
+
+.queueShadow {
+    box-shadow: 10px 10px 3px grey;
+}
