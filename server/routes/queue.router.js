@@ -1,11 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
-router.get('/', (req, res) => {
+router.get('/',rejectUnauthenticated, (req, res) => {
   console.log('Get Queue Router');
   const queryText = `SELECT "user"."id", "movie"."title", "movie"."poster_url", "friend_movie"."status", "friend_movie"."fm_table_id" FROM "user"
   JOIN "friend_movie"
@@ -22,10 +22,8 @@ router.get('/', (req, res) => {
   })
 });
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
+
+router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('POST router got a hit');
   const queryText = `INSERT INTO "movie" ("title", "description", "type")
                     VALUES ($1, $2, $3)
@@ -37,14 +35,14 @@ router.post('/', (req, res) => {
   ];
   pool.query(queryText, queryValues)
   .then(result => {
-    console.log('New is movie_table_id :', result.rows[0].movie_table_id);
+    console.log('New movie_table_id :', result.rows[0].movie_table_id);
     const createMovieTableId = result.rows[0].movie_table_id
 
     const insertMovieFriendQuery = `
     INSERT INTO "friend_movie" ("movie_id", "friend_id")
     VALUES ($1, $2);`
-
-    pool.query(insertMovieFriendQuery,[createMovieTableId, req.body.user])
+// consider using the req.user.id instead of req.body.user
+    pool.query(insertMovieFriendQuery,[createMovieTableId, req.user.id])
     res.sendStatus(201);
   }).catch(err => {
     console.error('Failed in create media', err);
@@ -52,7 +50,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',rejectUnauthenticated, (req, res) => {
   console.log('hit router.delete', req.params.id);
   const queryText = `DELETE FROM "friend_movie" WHERE "fm_table_id" =$1;`;
   pool.query(queryText, [req.params.id])
@@ -63,7 +61,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id',rejectUnauthenticated, (req, res) => {
   console.log('hit router.put', req.body.idToChange, req.body.statusUpdate)
   const queryText = `UPDATE "friend_movie" SET "status" = $1 WHERE "fm_table_id" = $2;`
   pool.query(queryText, [req.body.statusUpdate, req.body.idToChange])

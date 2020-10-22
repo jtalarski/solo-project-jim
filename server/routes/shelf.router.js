@@ -4,11 +4,14 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * Get all of the items on the shelf
  */
-router.get('/:tacos', (req, res) => {
+router.get('/:tacos',rejectUnauthenticated,(req, res) => {
   console.log('made it to the router')
   axios({
     method: 'GET',
