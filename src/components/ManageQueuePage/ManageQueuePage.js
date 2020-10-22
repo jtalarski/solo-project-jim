@@ -76,10 +76,12 @@ deleteMedia=(event) => {
         <h2 className="title">Manage Your Active Queue, {this.props.user.first_name}</h2>
       <table className="queueTable queueShadow">
           <thead>
+            <tr>
             <th>Title</th>
             <th>Status</th>
             <th>Change Status</th>
             <th>Remove</th>
+            </tr>
           </thead>
           <tbody>
           {this.props.queue.map (movie =>
@@ -101,10 +103,12 @@ deleteMedia=(event) => {
       <h2 className="title">Here is what you already watched</h2>
       <table className="queueTable queueShadow">
         <thead>
+          <tr>
           <th>Title</th>
           <th>Status</th>
           <th>Back To Queue</th>
           <th>Delete</th>
+          </tr>
         </thead>
         <tbody>
         {this.props.watched.map (watched =>
