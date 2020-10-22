@@ -81,6 +81,7 @@ deleteMedia=(event) => {
             <th>Change Status</th>
             <th>Remove</th>
           </thead>
+          <tbody>
           {this.props.queue.map (movie =>
             <tr key={movie.fm_table_id}>
               <td>{movie.title}</td>
@@ -95,6 +96,7 @@ deleteMedia=(event) => {
               </td>
               <td><button className="queueBtn" id={movie.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
             </tr>)}
+            </tbody>
       </table>
       <h2 className="title">Here is what you already watched</h2>
       <table className="queueTable queueShadow">
@@ -104,8 +106,9 @@ deleteMedia=(event) => {
           <th>Back To Queue</th>
           <th>Delete</th>
         </thead>
+        <tbody>
         {this.props.watched.map (watched =>
-          <tr>
+          <tr key={watched.fm_table_id} >
             <td>{watched.title}</td>
             <td>{watched.status}</td>
             <td className="centerTD">
@@ -113,7 +116,7 @@ deleteMedia=(event) => {
             </td>
             <td><button className="queueBtn" id={watched.fm_table_id} onClick={this.deleteMedia}>Delete</button></td>
           </tr>)}
-
+          </tbody>
       </table>
        
       </div>

@@ -106,15 +106,16 @@ typeSet = (event) => {
             <th>Add To My Queue!</th>
           </tr>
           </thead>
+          <tbody>
           {this.props.friends.map (media =>
-            <tr>
-              <td><img src={media.poster_url} ></img></td>
+            <tr key={media.movie_table_id}>
+              <td><img src={media.poster_url} alt="poster"></img></td>
               <td>{media.title}</td>
               <td>{media.description}</td>
               <td>{media.type}</td>
               <td><button className="addBtn" id={media.movie_table_id} onClick={this.addIt}>Add It!</button></td>
             </tr>)}
-        
+            </tbody>
       </table>
 
 
@@ -128,10 +129,10 @@ typeSet = (event) => {
     )
   }
 }
-const mapStateToProp = reduxState => ({
+const mapStateToProps = reduxState => ({
   search: reduxState.search,
   user: reduxState.user,
   newMedia: reduxState.newMedia,
   friends: reduxState.friends
 });
-export default connect(mapStateToProp)(withRouter(SearchPage));
+export default connect(mapStateToProps)(withRouter(SearchPage));
