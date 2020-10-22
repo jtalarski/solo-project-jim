@@ -26,7 +26,7 @@ class LandingPage extends Component {
             <p className="landingText">
               Deciding which movie or series to stream next? Do your friends suggest
               more viewing options than you can remember? If you answered yes to either 
-              questions in you are in the right place. watchUwatch will quickly become
+              questions you are in the right place. watchUwatch will quickly become
               your hub for trackig your viewing pleasures. 
             </p>
             {/* <img src={vids} style={{width: 500, height: 315, marginLeft: -15}}/> */}
