@@ -19,7 +19,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className="container">
-        <h2>Welecome to watchUwatch</h2>
+        <h2 className="hdleft">Welcome to watchUwatch</h2>
 
         <div className="grid">
           <div className="grid-col grid-col_8">
