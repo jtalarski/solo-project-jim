@@ -72,6 +72,7 @@ typeSet = (event) => {
     return (
       <div>
       {/* <pre>{JSON.stringify(this.props.friends, null, 2)}</pre> */}
+      <div className='addBackground queueShadow'>
       <h1>Want to add something new to your queue?</h1>  
       <form>
         <input
@@ -79,22 +80,23 @@ typeSet = (event) => {
         type='text'
         // value={this.state.newMedia.title}
         onChange={(event) => this.handleChangeFor(event, 'title')}
-      />
-      <input
-        placeholder='Plot'
-        type='text'
-        // value={this.state.newMedia.plot}
-        onChange={(event) => this.handleChangeFor(event, 'plot')}
-      />
+      /><br></br>
+      
       <select name="type" onClick={this.typeSet}>
         <option selected disabled>Movie or Series</option>
         <option value="Movie">Movie</option>
         <option value="Series">Series</option>
-      </select>
-
-      <button onClick={this.addToQueue}>Add To My Queue!</button>
-      </form>
+      </select> <br></br>
       
+      <textarea
+        placeholder='Plot'
+        type='text'
+        // value={this.state.newMedia.plot}
+        onChange={(event) => this.handleChangeFor(event, 'plot')}
+      /><br></br>
+      <button onClick={this.addToQueue} className="addBtn">Add To My Queue!</button>
+      </form>
+      </div>
       <h2>Consider something that your friends are watching</h2>
       <table className="queueShadow">
         <thead>

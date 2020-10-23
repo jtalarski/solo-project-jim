@@ -68,6 +68,7 @@ deleteMedia=(event) => {
     payload: event.target.id
   });
   swal("Going, going, gone!","Media removed from queue", "success");
+  this.fetchWatched();
 }
 
   render() {
