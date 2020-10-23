@@ -1,8 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-router.get('/', (req, res) => {
+router.get('/',rejectUnauthenticated, (req, res) => {
     console.log('Get WatchedQueue Router');
     const queryText = `SELECT "user"."id", "movie"."title", "friend_movie"."status", "friend_movie"."fm_table_id" FROM "user"
     JOIN "friend_movie"
