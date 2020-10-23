@@ -50,5 +50,16 @@ img {
     border-radius: 8px;
 }
 
+.addBackground {
+    background-color: #dddddd;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px black;
+}
+
+input, select, textarea {
+    border: solid 2px black;
+}
 
 

@@ -11,8 +11,11 @@ const AboutPage = () => (
       <h2>About watchUwatch</h2>
       <p>watchUwatch is my solo project for my time at Prime Academy. It is a full-stack
         application that is enabled mainly with React, Redux and Redux-Sagas. Also 
-        employed are Node, Express, Passport, Postgres and the Open Movie 
-        Database API. CSS and associated libraries were used for styling.
+        employed are Node, Express, Passport, and PostgreSQL. CSS and associated libraries were used for styling.
+
+        Future releases will integrate with the Open Movie Database API project
+        (http://www.omdbapi.com) and a social media feature set that includes show recommendations
+        and chat forums.
       </p>
     </div>
   </div>
