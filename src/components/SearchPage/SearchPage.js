@@ -20,6 +20,7 @@ componentDidMount () {
   }
 }
 
+// Kicks off createMedia.saga.js
 addToQueue = () => {
   this.props.dispatch({
     type: 'ADD_MEDIA',
@@ -28,7 +29,8 @@ addToQueue = () => {
   this.fetchFriendsQ()
   swal("Media added to your queue","", "success");
 }
-    
+ 
+// Kicks off friends.saga.js
 fetchFriendsQ = () => {
   console.log('in fetchFriendsQ');
   this.props.dispatch({
@@ -36,6 +38,9 @@ fetchFriendsQ = () => {
   });
 }
 
+// Changes state which is then sent to the 
+// createMedia.saga via the addToQueue function
+// on this page
 handleChangeFor = (event, propertyName) => {
   this.setState({
     newMedia: {
@@ -45,6 +50,8 @@ handleChangeFor = (event, propertyName) => {
   })
 }
 
+
+// Kicks off the recommend.saga.js
 addIt = (event) => {
   console.log('in addIt', event.target.id);
   this.props.dispatch ({
@@ -56,6 +63,10 @@ addIt = (event) => {
   this.fetchFriendsQ();
 }
 
+
+// Sets the type of media, movie or series in state
+// state is added to dispatch payload in addToQueue
+// function
 typeSet = (event) => {
   this.setState({
     newMedia: {
@@ -64,7 +75,6 @@ typeSet = (event) => {
     }
   })
 }
-
 
   render() {
     console.log('this user', this.props.user.id)

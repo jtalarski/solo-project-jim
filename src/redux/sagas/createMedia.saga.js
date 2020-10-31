@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// Will be fired by ADD_MEDIA dispatch action from
+// kicked off by addToQueue function in searchPage.js
+// next stop in flow is router.post in queue.router.js
 function* addMedia(action) {
     console.log('add media got an action', action);
     yield axios ({

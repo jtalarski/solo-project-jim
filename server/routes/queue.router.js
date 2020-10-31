@@ -50,6 +50,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   });
 });
 
+// kicked off by deleteQueue.saga.js. Next stop in flow is 
+// back to the saga then to ManageQueuePage.js
 router.delete('/:id',rejectUnauthenticated, (req, res) => {
   console.log('hit router.delete', req.params.id);
   const queryText = `DELETE FROM "friend_movie" WHERE "fm_table_id" =$1;`;

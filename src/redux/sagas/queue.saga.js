@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+//  Will be fired on FETCH_QUEUE action time from 
+// fethcQueue function in ManageQueuePage.js
 function* fetchQueue(action) {
     console.log('fetchQueue got an action', action);
     let response = yield axios ({

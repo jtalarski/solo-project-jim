@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// Fired by DELETE_QUEUE dispatch type from deletMedia()
+// component on ManageQueuePage.js. Next stop in flow
+// is router.delete in queue.router.js.
+
 function* deleteQueue(action) {
     console.log('deleteQueue got an action', action);
     yield axios ({
